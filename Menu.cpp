@@ -25,16 +25,24 @@ void Menu::handlekeys(sf::RenderWindow &window)
 
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+
+	{
 		sprFreccia.setPosition(100, 500);
+		isOnPlay = false;
+	}
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+
+	{
 		sprFreccia.setPosition(100, 250);
+		isOnPlay = true;
+	}
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) && isOnPlay == true)
 		wasShown = true;
 
-	/*else
-		window.close(); //Help*/
+	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) && isOnPlay == false)
+		window.close();
 }
 
 void Menu::draw(sf::RenderWindow &window)

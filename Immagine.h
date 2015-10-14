@@ -5,7 +5,7 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 
-class Immagine
+class Immagine					/* Manipolare posizioni con Vector2f e pos? Salto?*/
 
 {
 	public:
@@ -16,6 +16,7 @@ class Immagine
 	private:
 		sf::Texture texLatino;
 		sf::Sprite sprLatino;
+		bool isOnBorder();
 };
 
 #endif

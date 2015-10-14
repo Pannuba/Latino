@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Immagine.h"
 #include "Sfondo.h"
 #include "Menu.h"
@@ -13,6 +14,13 @@ int main(){
 	Immagine immagine;
 	Sfondo sfondo;
 	Menu menu;
+	
+	sf::Music music;
+	
+	if (!music.openFromFile("audio\\Hello.ogg"))
+		std::cerr << "\ncannot open music";
+
+	music.play();
 
 	while (window.isOpen())
 

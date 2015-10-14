@@ -18,6 +18,7 @@ class Menu
 		sf::Sprite sprMenu;
 		sf::Texture texFreccia;
 		sf::Sprite sprFreccia;
+		bool isOnPlay = true;
 };
 
 #endif
