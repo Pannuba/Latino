@@ -15,17 +15,17 @@ int main(){
 	Sfondo sfondo;
 	Menu menu;
 	
-	sf::Music music;
+	/*sf::Music music;
 	
 	if (!music.openFromFile("audio\\Hello.ogg"))
 		std::cerr << "\ncannot open music";
 
-	music.play();
+	music.play();*/
 
 	while (window.isOpen())
 
 	{
-		immagine.handlekeys();
+		immagine.update();
 		
 		sf::Event event;
 

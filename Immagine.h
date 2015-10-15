@@ -5,18 +5,21 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 
-class Immagine					/* Manipolare posizioni con Vector2f e pos? Salto?*/
+class Immagine
 
 {
 	public:
 		Immagine();
-		void handlekeys();
+		void update();
 		void draw(sf::RenderWindow &window);
 
 	private:
 		sf::Texture texLatino;
 		sf::Sprite sprLatino;
-		bool isOnBorder();
+		sf::Vector2f position;		/* spr.getPosition().x = position.x */
+		sf::Vector2f v = sf::Vector2f(12, 21);		/* Convertire tutto in vettori, vado a */
+		float a = 0;					/* fare i compiti di fisica */
+		bool isGrounded();
 };
 
 #endif

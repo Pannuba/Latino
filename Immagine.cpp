@@ -14,22 +14,26 @@ Immagine::Immagine()
 	sprLatino.setPosition(0, 450);
 }
 
-bool Immagine::isOnBorder()
+void Immagine::update()
 
 {
-	if (sprLatino.getPosition().x < 1000 || sprLatino.getPosition().x > 1000 || sprLatino.getPosition().y < 600 || sprLatino.getPosition().y > 600)
-		return true;
-	else
-		return false;
-}
+	position = sprLatino.getPosition();
 
-void Immagine::handlekeys()
-
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && position.y <= 450)
 
 	{
-		sprLatino.setPosition((sprLatino.getPosition().x) + 10, (sprLatino.getPosition().y) - 10);
+		std::clog << "\nHaha! Hai premuto spazio!";
+		//isGrounded = false;
+		
+		if (position.y < h)		/* Tutto ciò è un aborto */
+
+		{
+			sprLatino.move(v0x * t, (g * (t*t) / 2));
+			std::clog << "\nQui dovrebbe cadere\n";
+		}
+
+		else
+			sprLatino.move(v0x * t, -v0y * t -(g * (t*t) / 2)); /* E no setPosition((spr.getPosition().x) + 10, (spr.getPosition().y) - 10); */
 	}
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -38,10 +42,7 @@ void Immagine::handlekeys()
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		sprLatino.move(-10, 0);
 
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		sprLatino.move(-10, 0);
-
-	if (Immagine::isOnBorder)
+	/*if (Immagine::isOnBorder)
 
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -49,7 +50,7 @@ void Immagine::handlekeys()
 
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			sprLatino.move(10, 0);
-	}
+	}*/
 }
 
 void Immagine::draw(sf::RenderWindow &window)
